@@ -54,12 +54,17 @@ function App() {
     }
   }
 
+  function clearCompletedTodos(e) {
+    const filteredTodos = todos.filter((todo) => !todo.complete);
+    setTodos(filteredTodos);
+  }
+
   return (
     <>
       <TodoList todoList={todos} completeTodo={completeTodo} />
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Completed</button>
+      <button onClick={clearCompletedTodos}>Clear Completed</button>
       <div>{todos.filter((todo) => !todo.complete).length} left todo</div>
     </>
   );
