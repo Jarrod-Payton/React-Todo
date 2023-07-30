@@ -1,6 +1,8 @@
 import "./App.css";
 import TodoList from "./components/TodoList";
 import { useState, useRef, useEffect } from "react";
+import { idService } from "./services/IdService";
+import { todoService } from "./services/TodoService";
 
 function App() {
   const LOCAL_STORAGE_KEY = "JarrodPsTodoApp.todos";
@@ -30,25 +32,17 @@ function App() {
     setTodos(newTodos);
   }
 
-  function makeId() {
-    let highestId = 0;
-    todos.forEach((todo) => {
-      if (todo.id > highestId) {
-        highestId = todo.id;
-      }
-    });
-    return (highestId += 1);
-  }
-
-  function handleAddTodo(e) {
+  async function handleAddTodo(e) {
     const todoName = todoNameRef.current.value;
+    const todoId = await idService.makeId(todos);
     if (todoName !== "") {
       console.log(todoName);
       setTodos((previousTodos) => {
-        return [
+        const newTodos = [
           ...previousTodos,
-          { id: makeId(), name: todoName, complete: false },
+          { id: todoId, name: todoName, complete: false },
         ];
+        return newTodos;
       });
       todoNameRef.current.value = "";
     }
