@@ -4,7 +4,7 @@ import { idService } from "../services/IdService";
 import { useParams } from "react-router-dom";
 
 export default function ListPage() {
-  const listId = useParams();
+  const { listId } = useParams();
   const LOCAL_STORAGE_KEY = "JarrodPsTodoApp.todos";
 
   const [todos, setTodos] = useState([]);
@@ -15,6 +15,7 @@ export default function ListPage() {
     if (storedTodos) {
       setTodos(storedTodos);
       console.log(storedTodos);
+      console.log(listId);
     }
   }, []);
   // We use an empty array here so that it calls it once on load but because there is nothing in the array there is nothing to change so it never calls it again

@@ -12,7 +12,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list">
-          <Route index element={<ListPage />} />
           <Route path=":listId" element={<ListPage />} />
           <Route path="new" element={<NewListPage />} />
         </Route>
