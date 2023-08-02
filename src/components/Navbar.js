@@ -7,14 +7,8 @@ export default function Navbar() {
       <button>
         <Link to="/">Home</Link>
       </button>
-      {/* <button>
-        <Link to="/list/1">List</Link>
-      </button>
       <button>
-        <Link to="/list/3">List 3</Link>
-      </button> */}
-      <button>
-        <Link to="/list/new">New List</Link>
+        <Link to="/list/new">Create a New List</Link>
       </button>
     </>
   );

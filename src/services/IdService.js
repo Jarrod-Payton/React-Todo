@@ -1,9 +1,9 @@
 class IdService {
-  async makeId(todos) {
+  async makeId(array) {
     let highestId = 0;
-    await todos.forEach((todo) => {
-      if (todo.id > highestId) {
-        highestId = todo.id;
+    await array.forEach((array) => {
+      if (array.id > highestId) {
+        highestId = array.id;
       }
     });
     return highestId + 1;

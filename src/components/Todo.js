@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Todo({ todo, completeTodo }) {
   function handleTodoToggle() {
     completeTodo(todo.id);
