@@ -2,6 +2,19 @@ import { useEffect, useState } from "react";
 import List from "./List";
 import { localStorageService } from "../services/LocalStorageService";
 
+function Loop({ lists, allowEditing, deleteList }) {
+  return lists.map((list) => {
+    return (
+      <List
+        key={list.id}
+        list={list}
+        deleteListById={deleteList}
+        allowListEditing={allowEditing}
+      />
+    );
+  });
+}
+
 export default function ListsDisplay({ parentData, allowListEditing }) {
   // The Variable "parentData" is so that if I end up adding to the list via a parent component than all I have to do is update the list attached to this component and it will grab the new data
   const [lists, setLists] = useState([]);
@@ -19,14 +32,13 @@ export default function ListsDisplay({ parentData, allowListEditing }) {
     setLists(newLists);
   }
 
-  return lists.map((list) => {
-    return (
-      <List
-        key={list.id}
-        list={list}
-        deleteListById={deleteList}
-        allowListEditing={allowListEditing}
+  return (
+    <div className="m-3 text-center">
+      <Loop
+        lists={lists}
+        allowEditing={allowListEditing}
+        deleteList={deleteList}
       />
-    );
-  });
+    </div>
+  );
 }
