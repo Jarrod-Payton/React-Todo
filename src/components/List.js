@@ -4,10 +4,15 @@ import { useNavigate } from "react-router-dom";
 function Edits({ show, deleteList }) {
   if (show) {
     return (
-      <div className="flex justify-between px-2 shadow-sm">
-        <button className="text-sm font-bold">Edit</button>
-        <button className="hover:text-red-500 font-bold" onClick={deleteList}>
-          X
+      <div className="flex justify-between px-2">
+        {/* For if / when I decide to let people edit their lists names */}
+        {/* <button className="text-sm font-bold">Edit</button> */}
+        <div></div>
+        <button
+          className="text-red-500 hover:text-gray-400 font-bold"
+          onClick={deleteList}
+        >
+          Delete List
         </button>
       </div>
     );

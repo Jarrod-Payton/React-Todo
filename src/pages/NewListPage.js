@@ -24,9 +24,20 @@ export default function NewListPage() {
 
   return (
     <>
-      <div>NewListPage</div>
-      <input type="text" ref={listNameRef} />
-      <button onClick={handleCreateList}>Create List</button>
+      <div className="flex mx-2 outline outline-2 rounded-full">
+        <input
+          type="text"
+          ref={listNameRef}
+          placeholder="New List's Name"
+          className="w-5/6 mx-1 p-2 font-mono rounded-full border-none focus:outline-none"
+        />
+        <button
+          onClick={handleCreateList}
+          className="w-1/6 p-1 rounded-full bg-lime-500 text-black hover:bg-lime-400"
+        >
+          Create
+        </button>
+      </div>
       <ListsDisplay parentData={lists} allowListEditing={true} />
     </>
   );
