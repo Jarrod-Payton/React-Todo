@@ -8,8 +8,11 @@ function LoopedTodos({ todoList, completeTodo }) {
 
 export default function TodoList({ todoList, completeTodo }) {
   return (
-    <div>
-      <div>{todoList.filter((todo) => !todo.complete).length} left todo</div>
+    <div className="mx-3">
+      {/* <div className="text-lg mb-2 underline font-bold">
+        {todoList.filter((todo) => !todo.complete).length} tasks left to
+        complete!
+      </div> */}
       <LoopedTodos todoList={todoList} completeTodo={completeTodo} />
     </div>
   );

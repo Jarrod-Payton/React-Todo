@@ -46,6 +46,7 @@ export default function ListPage() {
   }
 
   async function handleAddTodo(e) {
+    e.preventDefault();
     const todoName = todoNameRef.current.value;
     const todoId = await idService.makeId(todos);
     if (todoName !== "") {
@@ -73,25 +74,34 @@ export default function ListPage() {
       <h1 className="text-2xl text-center w-full bg-gray-600 text-white p-5 font-mono">
         {list.name}
       </h1>
-      <div className="flex justify-evenly mb-3 p-2 pb-4 bg-gray-600">
-        <button
-          className="w-3/12 text-md bg-gray-300 p-2 rounded-l-2xl hover:bg-gray-500 hover:text-white"
-          onClick={handleAddTodo}
-        >
-          Add Todo
-        </button>
-        <input
-          className="w-6/12 pl-2 focus:outline-none text-md"
-          placeholder="Task..."
-          ref={todoNameRef}
-          type="text"
-        />
-        <button
-          className="w-3/12 text-md bg-red-200 hover:bg-red-500 hover:text-white p-2 rounded-r-2xl"
-          onClick={clearCompletedTodos}
-        >
-          Clear Completed
-        </button>
+      <div className="mb-3 p-2 pb-4 bg-gray-600">
+        <form onSubmit={handleAddTodo}>
+          <div className="flex justify-evenly mb-3 rounded-2xl">
+            <button
+              className="w-3/12 text-md bg-gray-300 p-2 rounded-l-2xl hover:bg-gray-500 hover:text-white"
+              // onClick={handleAddTodo}
+              type="enter"
+            >
+              Add Todo
+            </button>
+            <input
+              className="w-6/12 pl-2 focus:outline-none text-md"
+              placeholder="Task..."
+              ref={todoNameRef}
+              type="text"
+            />
+            <button
+              className="w-3/12 text-md bg-red-200 hover:bg-red-500 hover:text-white p-2 rounded-r-2xl"
+              onClick={clearCompletedTodos}
+            >
+              Clear Completed
+            </button>
+          </div>
+        </form>
+        <div className="text-xl text-center text-white font-mono">
+          {todos.filter((todo) => !todo.complete).length} Items left to
+          complete!
+        </div>
       </div>
       <TodoList todoList={todos} completeTodo={completeTodo} />
     </div>

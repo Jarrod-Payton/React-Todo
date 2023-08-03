@@ -16,6 +16,7 @@ export default function NewListPage() {
   }, []);
 
   async function handleCreateList(e) {
+    e.preventDefault();
     const listName = listNameRef.current.value;
     const newLists = await localStorageService.createNewList(listName);
     await setLists(newLists);
@@ -24,7 +25,10 @@ export default function NewListPage() {
 
   return (
     <>
-      <div className="flex mx-2 outline outline-2 rounded-full">
+      <form
+        className="flex mx-2 outline outline-2 rounded-full"
+        onSubmit={handleCreateList}
+      >
         <input
           type="text"
           ref={listNameRef}
@@ -32,12 +36,12 @@ export default function NewListPage() {
           className="w-5/6 mx-1 p-2 font-mono rounded-full border-none focus:outline-none"
         />
         <button
-          onClick={handleCreateList}
+          type="enter"
           className="w-1/6 p-1 rounded-full bg-lime-500 text-black hover:bg-lime-400"
         >
           Create
         </button>
-      </div>
+      </form>
       <ListsDisplay parentData={lists} allowListEditing={true} />
     </>
   );
