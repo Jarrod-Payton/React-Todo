@@ -38,6 +38,12 @@ class LocalStorageService {
     return myLists;
   }
 
+  async getListById(listId) {
+    const myLists = await this.getMyLists();
+    const foundList = await myLists.find((list) => list.id === Number(listId));
+    return foundList;
+  }
+
   async createNewList(listName) {
     if (listName === "") {
       return null;
