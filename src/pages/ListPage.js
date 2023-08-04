@@ -33,7 +33,6 @@ export default function ListPage() {
   useEffect(() => {
     const updateTodos = async () => {
       await localStorageService.updateTodosByListId(listId, todos);
-      // console.log("Use Effect Completed");
     };
     updateTodos();
   }, [todos]);
@@ -79,7 +78,6 @@ export default function ListPage() {
           <div className="flex justify-evenly mb-3 rounded-2xl">
             <button
               className="w-3/12 text-md bg-gray-300 p-2 rounded-l-2xl hover:bg-gray-500 hover:text-white"
-              // onClick={handleAddTodo}
               type="enter"
             >
               Add Todo
