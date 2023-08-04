@@ -7,16 +7,18 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/list">
-          <Route path=":listId" element={<ListPage />} />
-          <Route path="new" element={<NewListPage />} />
-        </Route>
-      </Routes>
-    </>
+    <div className="w-full flex justify-center">
+      <div className=" max-w-lg">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/list">
+            <Route path=":listId" element={<ListPage />} />
+            <Route path="new" element={<NewListPage />} />
+          </Route>
+        </Routes>
+      </div>
+    </div>
   );
 }
 
