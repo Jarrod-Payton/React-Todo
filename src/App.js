@@ -7,8 +7,8 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="w-full flex justify-center">
-      <div className=" max-w-lg">
+    <div className="w-full h-screen flex justify-center bg-slate-200">
+      <div className=" max-w-lg w-full h-full bg-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

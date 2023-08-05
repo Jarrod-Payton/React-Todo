@@ -70,14 +70,14 @@ export default function ListPage() {
 
   return (
     <div>
-      <h1 className="text-2xl text-center w-full bg-gray-600 text-white p-5 font-mono">
+      <h1 className="text-2xl w-full text-center bg-gray-600 text-white p-5 font-mono">
         {list.name}
       </h1>
       <div className="mb-3 p-2 pb-4 bg-gray-600">
         <form onSubmit={handleAddTodo}>
           <div className="flex justify-evenly mb-3 rounded-2xl">
             <button
-              className="w-3/12 text-md bg-gray-300 p-2 rounded-l-2xl hover:bg-gray-500 hover:text-white"
+              className="w-3/12 text-sm bg-gray-300 p-2 rounded-l-2xl hover:bg-gray-500 hover:text-white"
               type="enter"
             >
               Add Todo
@@ -89,7 +89,7 @@ export default function ListPage() {
               type="text"
             />
             <button
-              className="w-3/12 text-md bg-red-200 hover:bg-red-500 hover:text-white p-2 rounded-r-2xl"
+              className="w-3/12 text-sm bg-red-200 hover:bg-red-500 hover:text-white p-2 rounded-r-2xl"
               onClick={clearCompletedTodos}
             >
               Clear Completed
